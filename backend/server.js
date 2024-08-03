@@ -3,8 +3,8 @@ const express = require("express")
 const cors =require("cors")
 const { connectDB } = require("./config/db.js")
 const { foodRouter } = require("./routes/foodRoute.js")
-
-
+const {userRouter}=require('./routes/userRoute.js')
+require('dotenv').config();
 
 const app=express()
 const port=4000
@@ -19,6 +19,7 @@ connectDB()
 //api endpoints
 app.use('/api/food',foodRouter)
 app.use("/images",express.static("uploads"))
+app.use('/api/user',userRouter)
 
 app.get("/",(req,res)=>{
     res.send("API Working")
