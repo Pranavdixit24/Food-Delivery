@@ -18,7 +18,7 @@ const StoreContextProvider = (props)=>{
 
     useEffect(()=>{
         if(localStorage.getItem("token")){
-            serToken(localStorage.getItem("token"))
+            setToken(localStorage.getItem("token"))
         }
     },[])
 
