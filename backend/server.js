@@ -6,6 +6,14 @@ const { foodRouter } = require("./routes/foodRoute.js")
 const {userRouter}=require('./routes/userRoute.js')
 require('dotenv').config();
 
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 const app=express()
 const port=4000
 
